@@ -202,14 +202,15 @@ def compare_content(df1, df2):
 
 if __name__=="__main__":
 
-    df1=pd.DataFrame({"columna_1":[1,2,3,4],
-                  "columna_2":[5,6,7,8],
-                  "columna_3":[9,10,11,12]})
+    df1=pd.DataFrame({
+         "columna_1":[1, 2, 3, 4],
+         "columna_2": [5, 6, 7, 8],
+         "columna_3": [9, 10, 11, 12]})
 
                 
     #directory path
     path=r"C:\Users\Administrador\Desktop\DataFrame work"
-
+    """
     #today info
     today=dt.date.today()
     today_str=today.strftime("%d_%m_%Y")
@@ -223,7 +224,7 @@ if __name__=="__main__":
     yesterday_path=path+chr(92)+yesterday_str+".csv"
     print("yesterday_str:",yesterday_str)
     print("yesterday_path:",yesterday_path)
-
+    """
     actual_day=00
     #cuando cambia el dia ejecuta el siguiente codigo
 
@@ -249,8 +250,8 @@ if __name__=="__main__":
         #tretamos de leer la info de ayer
         try:
             df2=pd.read_csv(yesterday_path,index_col=0)
-            print(df1)
-            print(df2)
+            #print(df1)
+            #print(df2)
 
             #1)comprobar si el contenido de columnas es el mismo
             #cual tiene mas columnas?
@@ -266,12 +267,15 @@ if __name__=="__main__":
             #podrias identificar columna y fila diferente? mostrando el contenido de cada df en dicha fila y columna
             #existe una fila con contenido nulo
             dif_content=compare_content(df1,df2)
-
-            print(dif_columns)
-            print(dif_rows)
-            print(dif_content)
+            print("")
+            print("--->dif_columns:",dif_columns)
+            print("")
+            print("--->dif_rows:",dif_rows)
+            print("")
+            print("--->dif_content:",dif_content)
             #compuruba la falta de rows
             #guarda registro en un log
+            print("")
 
         except Exception as e:
             print("")
